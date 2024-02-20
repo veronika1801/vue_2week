@@ -6,9 +6,9 @@
       <router-link  to="/register">Регистрация</router-link> |
     </span>
     <span v-show="userAuthed">
-      <router-link >Корзина</router-link> |
+      <router-link to="/cart">Корзина</router-link> |
       <router-link >Заказы</router-link> |
-      <button  ><b>ВЫЙТИ</b></button>
+      <button  @click="LogOut"><b>ВЫЙТИ</b></button>
     </span>
 
     
@@ -28,7 +28,38 @@ data() {
     },
     errors: ""
   }
-}}
+},
+computed: {
+        userAuthed() {
+            return this.$store.getters.isAuthenticated
+        }
+    },
+methods: {
+  LogOut() {
+    this.$store.dispatch('deleteToken').then(() => {
+      this.$router.push('/')
+    }
+    ).catch((error) => {
+                console.error('Logout failed:', error);
+    });
+  },
+},
+
+created(){
+  this.$store.dispatch('getProducts')
+if (localStorage.getItem('token')) {
+      try {
+        this.token = localStorage.getItem('token');
+        this.$store.dispatch('setToken',this.token)
+      } catch(e) {
+        localStorage.removeItem('token');
+      }
+}
+  console.log(this.token)
+  this.$store.dispatch('getCart',this.token)
+  this.$store.dispatch('getOrders',this.token)
+}
+}
 </script>
 
 <style>
