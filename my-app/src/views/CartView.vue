@@ -26,7 +26,7 @@ data() {
   }
 },
 methods:{
- 
+  
 }
 }
 </script>

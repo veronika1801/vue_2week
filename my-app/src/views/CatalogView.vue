@@ -15,7 +15,7 @@ import { reactive, computed } from 'vue'
 
 
 
-const data = reactive( await axios.get(url))
+
 
 
 

@@ -36,6 +36,7 @@ export default {
     },
     methods:{
     async addProd(index){
+       
         if(this.token){
           const res = await fetch(`https://jurapro.bhuser.ru/api-shop/cart/${index}`,{
         method: "POST",
@@ -45,9 +46,11 @@ export default {
         }
       })
       const data = await res.json()
-        this.$store.dispatch('getCart',this.token)
+        this.$store.dispatch('getCart',this.token, count)
         }
+        
     },
+    
     async removeProd(index){
         if(this.token){
           const res = await fetch(`https://jurapro.bhuser.ru/api-shop/cart/${index}`,{
