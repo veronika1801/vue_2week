@@ -9,24 +9,25 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  
+ 
+ 
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
+  },
+
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-},
-{
-  path: '/register',
-  name: 'register',
-  component: RegisterView
-},
-{
-  path: '/login',
-  name: 'login',
-  component: LoginView
-},
-)
+})
 
 
 export default router

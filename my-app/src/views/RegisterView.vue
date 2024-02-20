@@ -15,8 +15,8 @@
       <input type="password" placeholder="пароль" v-model="form.password" required>
     </label>
     <div class="actions">
-    
-      <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+        <button><router-link  to="/" class="rout">ОТМЕНА</router-link></button>
+        <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       
     </div>
   </form>
@@ -76,7 +76,11 @@ methods: {
     gap:10px;
     
   }
-  
+   .rout{
+        color: white;
+        text-decoration:none;
+   
+    }
    button{
         border-radius:20px;
         border:none;

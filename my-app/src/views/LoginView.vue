@@ -21,7 +21,7 @@
         >
       </label>
       <div class="actions">
-        
+        <button><router-link  to="/" class="rout">ОТМЕНА</router-link></button>
         <button type="submit" class="" >АВТОРИЗОВАТЬСЯ </button>
       </div>
     </form>
@@ -71,7 +71,11 @@ export default {
 }
 </script>
 <style>
+    .rout{
+        color: white;
+        text-decoration:none;
    
+    }
        button{
         border-radius:20px;
         border:none;
