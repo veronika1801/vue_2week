@@ -46,7 +46,7 @@ export default {
         }
       })
       const data = await res.json()
-        this.$store.dispatch('getCart',this.token, count)
+        this.$store.dispatch('getCart',this.token)
         }
         
     },
