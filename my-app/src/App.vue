@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">Каталог</router-link> |
     <span v-show="!userAuthed" >
-      <router-link  >Авторизация</router-link> |
+      <router-link   to="/login">Авторизация</router-link> |
       <router-link  to="/register">Регистрация</router-link> |
     </span>
     <span v-show="userAuthed">
@@ -15,6 +15,21 @@
   </nav>
   <router-view/>
 </template>
+<script>
+export default {
+name: 'LoginView',
+data() {
+  return {
+    form: {
+      fio: '',
+      email: '',
+      password: '' ,
+      token:null
+    },
+    errors: ""
+  }
+}}
+</script>
 
 <style>
 #app {
