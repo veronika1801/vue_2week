@@ -1,7 +1,17 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <span v-show="!userAuthed" >
+      <router-link  >Авторизация</router-link> |
+      <router-link  to="/register">Регистрация</router-link> |
+    </span>
+    <span v-show="userAuthed">
+      <router-link >Корзина</router-link> |
+      <router-link >Заказы</router-link> |
+      <button  ><b>ВЫЙТИ</b></button>
+    </span>
+
+    
   </nav>
   <router-view/>
 </template>
