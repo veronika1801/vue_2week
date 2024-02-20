@@ -7,16 +7,16 @@
       <input type="text" placeholder="Фамилия Имя Отчество" v-model="form.fio" required>
     </label>
     <label>
-      Email 
+      Email
       <input type="email" placeholder="эл. почта" v-model="form.email" required>
     </label>
     <label>
       Пароль
-      <input type="password" placeholder="пароль" v-model="form.password" required>
+      <input type="password" placeholder="пароль" v-model="form.password" required >
     </label>
     <div class="actions">
-        <button><router-link  to="/" class="rout">ОТМЕНА</router-link></button>
-        <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
+      <button><router-link  to="/" class="rout">ОТМЕНА</router-link></button>
+      <button type="submit">ЗАРЕГИСТРИРОВАТЬСЯ</button>
       
     </div>
   </form>
@@ -76,11 +76,7 @@ methods: {
     gap:10px;
     
   }
-   .rout{
-        color: white;
-        text-decoration:none;
-   
-    }
+
    button{
         border-radius:20px;
         border:none;

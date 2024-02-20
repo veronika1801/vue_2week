@@ -1,9 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import RegisterView from "../views/RegisterView"
 import LoginView from "../views/LoginView"
+import RegisterView from "../views/RegisterView"
 import CartView from "../views/CartView"
 import OrdersView from "../views/OrdersView"
+
 
 const routes = [
   {
@@ -38,6 +39,5 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-
 
 export default router

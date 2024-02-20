@@ -12,8 +12,7 @@
 
 import { reactive, computed } from 'vue'
 
-import axios from "axios"
-const url = "https://jurapro.bhuser.ru/api-shop/products"
+
 
 
 const data = reactive( await axios.get(url))

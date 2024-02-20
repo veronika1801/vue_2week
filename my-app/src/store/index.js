@@ -1,13 +1,14 @@
 import { createStore } from 'vuex'
 
+
 const getProducts = () => {
   return fetch('https://jurapro.bhuser.ru/api-shop/products',{
     method: "GET",
     headers:{
-      'Content-Type': 'application/json',
-      'Authorization' : `Bearer ${payload}`
+      'Content-Type': 'application/json'
     },
   })
+  
 }
 const getCart = (payload) => {
 
@@ -32,6 +33,8 @@ const getOrders = (payload) => {
     })
   }
 }
+
+
 export default createStore({
   state: {
     token: localStorage.getItem('token') || '',
