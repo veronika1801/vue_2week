@@ -21,11 +21,23 @@ const getCart = (payload) => {
     })
   }
 }
+const getOrders = (payload) => {
+  if(payload){
+    return fetch('https://jurapro.bhuser.ru/api-shop/order',{
+      method: "GET",
+      headers:{
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${payload}`
+      }
+    })
+  }
+}
 export default createStore({
   state: {
     token: localStorage.getItem('token') || '',
     products:[],
     cart:[],
+    orders:[],
   },
   getters: {
     getToken(state){
@@ -38,6 +50,9 @@ export default createStore({
     getCart(state){
       return state.cart
     },
+    getOrders(state){
+      return state.orders
+    }
   },
   mutations: {
     SET_TOKEN(state,payload){
@@ -52,7 +67,9 @@ export default createStore({
     SET_CART(state,payload){
       state.cart=payload
     },
-   
+    SET_ORDERS(state,payload){
+      state.orders = payload
+    }
   },
   actions: {
     setToken({commit}, payload){
@@ -79,7 +96,14 @@ export default createStore({
         console.log(error)
       }
     },
+    async getOrders({commit}, payload){
+      try{
+        const prod = await getOrders(payload)
+        console.log(prod.json().then(function(value){commit('SET_ORDERS', value)}))
+      }
+      catch(error){
+        console.log(error)
+      }
+    },   
   },
-  modules: {
-  }
 })

@@ -7,7 +7,7 @@
     </span>
     <span v-show="userAuthed">
       <router-link to="/cart">Корзина</router-link> |
-      <router-link >Заказы</router-link> |
+      <router-link to="/orders">Заказы</router-link> |
       <button  @click="LogOut"><b>ВЫЙТИ</b></button>
     </span>
 
