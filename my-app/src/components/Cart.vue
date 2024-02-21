@@ -3,7 +3,7 @@
 
 
 <ul v-if="cart.length">
-    <li v-for="(prod, index) in cart" :key="prod.id" > <b>НАЗВАНИЕ:</b> {{ prod.name }} <br> <b>ОПИСАНИЕ:</b> {{ prod.description }} <br> <b>ID ТОВАРА:</b> {{ prod.product_id }} <br> <b>ЦЕНА:</b> {{ prod.price }}<br>
+    <li v-for="(prod, index) in cart" :key="prod.id" > <b>НАЗВАНИЕ:</b> {{ prod.name }} <br> <b>ОПИСАНИЕ:</b> {{ prod.description }} <br> <b>ID ТОВАРА:</b> {{ prod.product_id }}  <br> <b>Колличество:</b> {{ prod.count }}<br> <b>ЦЕНА:</b> {{ prod.price }}<br>
         <button @click="addProd(prod.product_id)">+</button>
         <button @click="removeProd(prod.id)">-</button>
     </li>
@@ -28,7 +28,24 @@ export default {
     computed: {
     cart(){
         const cart = this.$store.getters.getCart.data
-        return cart
+        let cart2 = []
+        if(cart){
+          for(let i in cart){
+          cart2.push({id:cart[i].id, product_id:cart[i].product_id,name:cart[i].name,description:cart[i].description,price:cart[i].price,count:1})
+        }
+        }
+        const resultObject = {}
+        for(let item of cart2){
+          const resultValue = resultObject[item.product_id]
+          if(resultValue){
+            resultValue.count +=1
+          }
+          else{
+            resultObject[item.product_id] = {...item}
+          }
+        }
+        const cart3 = Object.values(resultObject)
+        return cart3
     },
     token(){
         return this.$store.getters.getToken
